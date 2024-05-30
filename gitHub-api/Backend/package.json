@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@octokit/core": "^6.1.2",
+    "@octokit/rest": "^20.1.1",
+    "axios": "^1.7.2",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0"
+  }
+}
