@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+// Component to search for GitHub users
 function UserSearch() {
   const [username, setUsername] = useState('');
   const [users, setUsers] = useState([]);
 
+  // Function to search users from GitHub API
   const searchUsers = async () => {
     const response = await axios.get(`http://localhost:5000/api/users/${username}`);
     setUsers([response.data.user]);

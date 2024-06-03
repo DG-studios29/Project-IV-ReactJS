@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
+// Component to display details of a GitHub repository
 function RepoDetails() {
   const { owner, repo } = useParams();
   const [repoDetails, setRepoDetails] = useState(null);
   const [commits, setCommits] = useState([]);
 
+  // Fetch repository details and last 5 commits from backend
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(`http://localhost:5000/api/repos/${owner}/${repo}`);

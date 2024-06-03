@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
+// Component to display details of a GitHub user
 function UserDetails() {
   const { username } = useParams();
   const [user, setUser] = useState(null);
   const [repos, setRepos] = useState([]);
 
+  // Fetch user details and repositories from backend
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(`http://localhost:5000/api/users/${username}`);

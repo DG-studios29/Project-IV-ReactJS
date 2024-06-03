@@ -4,6 +4,7 @@ import UserSearch from './components/UserSearch';
 import UserDetails from './components/UserDetails';
 import RepoDetails from './components/RepoDetails';
 
+// Main application component with routing
 function App() {
   return (
     <Router>

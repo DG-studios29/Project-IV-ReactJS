@@ -5,13 +5,15 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(helmet());
-app.use(cors());
-app.use(express.json());
+// Middleware setup
+app.use(helmet()); // Security middleware
+app.use(cors()); // Cross-Origin Resource Sharing middleware
+app.use(express.json()); // JSON parsing middleware
 
-const githubApiUrl = 'https://api.github.com';
-const token = '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';
+const githubApiUrl = 'https://api.github.com'; // GitHub API base URL
+const token = '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'; // GitHub API token
 
+// Route to get user details and repos
 app.get('/api/users/:username', async (req, res) => {
     try {
         const { username } = req.params;
@@ -27,6 +29,7 @@ app.get('/api/users/:username', async (req, res) => {
     }
 });
 
+// Route to get repo details and last 5 commits
 app.get('/api/repos/:owner/:repo', async (req, res) => {
     try {
         const { owner, repo } = req.params;
@@ -42,6 +45,7 @@ app.get('/api/repos/:owner/:repo', async (req, res) => {
     }
 });
 
+// Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
